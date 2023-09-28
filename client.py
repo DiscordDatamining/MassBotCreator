@@ -9,6 +9,7 @@ Instructions:
 1. Add your tokens to the configuration.
 2. Customize your settings as needed.
 3. Run this script to create and run create multiple Discord bots.
+
 """
 
 from datetime import datetime
