@@ -70,7 +70,7 @@ class Client:
             value=fingerprint,
         )
 
-    def process_error(self: "Client", message: str) -> None:
+    def error(self: "Client", message: str) -> None:
         print(
             (
                 f"[{self.grey}Today {self.white}@ {self.grey}{self.hours}:{self.minutes} {self.period}{self.white}]{self.white}({self.red}Error{self.white}) "
@@ -78,5 +78,13 @@ class Client:
             )
         )
 
+    def approve(self: "Client", message: str) -> None:
+        print(
+            (
+                f"[{self.grey}Today {self.white}@ {self.grey}{self.hours}:{self.minutes} {self.period}{self.white}]{self.white}({self.green}Success{self.white}) "
+                f"{message}"
+            )
+        )
 
-Client = Client().process_error(message="testlol")
+
+Client = Client().approve(message="testlol")
