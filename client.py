@@ -73,7 +73,7 @@ class Client:
     def process_error(self: "Client", message: str) -> None:
         print(
             (
-                f"({self.grey}Today {self.white}@ {self.grey}{self.hours}:{self.minutes} {self.period}{self.white}){self.white}({self.red}Error{self.white}) "
+                f"[{self.grey}Today {self.white}@ {self.grey}{self.hours}:{self.minutes} {self.period}{self.white}]{self.white}({self.red}Error{self.white}) "
                 f"{message}"
             )
         )
