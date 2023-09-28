@@ -13,7 +13,7 @@ Instructions:
 """
 
 from datetime import datetime
-
+import redis
 import aiohttp
 import httpx
 import requests
@@ -28,9 +28,15 @@ from aiohttp import (
     ClientResponse,
     ClientSession,
 )
+from redis import StrictRedis
 from colored import fg
 from geopy.geocoders import Nominatim
-from requests import ConnectionError, JSONDecodeError, get, post
+from requests import (
+    ConnectionError,
+    JSONDecodeError,
+    get,
+    post,
+)
 
 
 class Client:
@@ -47,3 +53,8 @@ class Client:
         self.yellow = fg("#ffa500")
         self.grey = fg("#2b2d31")
         self.session: ClientSession = aiohttp.ClientSession
+        self.redis = StrictRedis(
+            host="localhost",
+            port=6379,
+            db=0,
+        )
