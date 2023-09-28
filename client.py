@@ -28,6 +28,7 @@ from aiohttp import (
     ClientResponse,
     ClientSession,
 )
+from colorama import Fore
 from redis import StrictRedis
 from colored import fg
 from geopy.geocoders import Nominatim
@@ -53,6 +54,7 @@ class Client:
         self.yellow = fg("#ffa500")
         self.grey = fg("#2b2d31")
         self.blue = fg("#748cdc")
+        self.white = Fore.RESET
         self.session: ClientSession = aiohttp.ClientSession
         self.redis = StrictRedis(
             host="localhost",
@@ -67,3 +69,14 @@ class Client:
             name="client_fingerprint",
             value=fingerprint,
         )
+
+    def process_error(self: "Client", message: str) -> None:
+        print(
+            (
+                f"({self.grey}Today {self.white}@ {self.grey}{self.hours}:{self.minutes} {self.period}{self.white}){self.white}({self.red}Error{self.white}) "
+                f"{message}"
+            )
+        )
+
+
+Client = Client().process_error(message="testlol")
