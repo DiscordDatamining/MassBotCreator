@@ -58,3 +58,11 @@ class Client:
             port=6379,
             db=0,
         )
+
+    def __sessions__(self: "Client", *args, **kwargs) -> None:
+        req = get(url="https://discord.com/api/v9/experiments")
+        fingerprint = req.json()["fingerprint"]
+        self.redis.set(
+            name="client_fingerprint",
+            value=fingerprint,
+        )
