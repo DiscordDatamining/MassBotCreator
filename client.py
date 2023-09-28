@@ -52,6 +52,7 @@ class Client:
         self.red = fg("#FAA61A")
         self.yellow = fg("#ffa500")
         self.grey = fg("#2b2d31")
+        self.blue = fg("#748cdc")
         self.session: ClientSession = aiohttp.ClientSession
         self.redis = StrictRedis(
             host="localhost",
