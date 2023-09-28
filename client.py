@@ -86,5 +86,10 @@ class Client:
             )
         )
 
-
-Client = Client().approve(message="testlol")
+    def warn(self: "Client", message: str) -> None:
+        print(
+            (
+                f"[{self.grey}Today {self.white}@ {self.grey}{self.hours}:{self.minutes} {self.period}{self.white}]{self.white}({self.yellow}WARNING!{self.white}) "
+                f"{message}"
+            )
+        )
