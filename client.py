@@ -17,6 +17,7 @@ import redis
 import aiohttp
 import httpx
 import requests
+import json
 from aiohttp import (
     ClientConnectionError,
     ClientConnectorCertificateError,
@@ -92,4 +93,16 @@ class Client:
                 f"[{self.grey}Today {self.white}@ {self.grey}{self.hours}:{self.minutes} {self.period}{self.white}]{self.white}({self.yellow}WARNING!{self.white}) "
                 f"{message}"
             )
+        )
+
+    def load_tokens(self: "Client") -> None:
+        tokens = open("helpers/tokens.txt", "r").readlines()
+        for token in tokens:
+            t = token.rstrip()
+            return t
+
+    def create(self: "Client") -> None:
+        p = post(
+            url="https://discord.com/api/v9/applications",
+            headers="",
         )
